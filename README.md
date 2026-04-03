@@ -1,6 +1,6 @@
-# ETF Bubble Observatory v2
+# Interactive Dashboard
 
-Bloomberg-terminal aesthetic dashboard comparing **Dotcom Era (1995–2005)** vs **Modern Era (2015–2026)** — across both ETF benchmarks and large-cap companies by sector.
+Aesthetic dashboard interactive
 
 ## Quick Start
 
@@ -16,12 +16,13 @@ Place your 4 JSON files here:
 ```
 public/
   data/
-    etf/
-      dotcom.json        ← ETF dotcom era  (Category field)
-      modern.json        ← ETF modern era  (Category field)
-    companies/
-      dotcom.json        ← Companies dotcom (Sector field)  ← your dotcom_1995_2005.json
-      modern.json        ← Companies modern (Sector field)  ← your modern_2015_2026.json
+    bubble-observatory/
+       etf/
+         dotcom.json        ← ETF dotcom era  (Category field)
+         modern.json        ← ETF modern era  (Category field)
+       companies/
+         dotcom.json        ← Companies dotcom (Sector field)  ← your dotcom_1995_2005.json
+         modern.json        ← Companies modern (Sector field)  ← your modern_2015_2026.json
 ```
 
 Both JSON formats: array of daily records with fields:
