@@ -24,8 +24,8 @@ export default function Header({ dataType, onDataTypeChange }) {
   return (
     <header className="border-b border-[#1c2631] bg-[#0d1117] sticky top-0 z-50">
       {/* Ticker tape — decorative, not real prices */}
-      {/* 
-       <div className="overflow-hidden border-b border-[#1c2631] bg-[#080c10] h-7 flex items-center">
+      {/*
+      <div className="overflow-hidden border-b border-[#1c2631] bg-[#080c10] h-7 flex items-center">
         <div className="flex gap-10 animate-marquee whitespace-nowrap">
           {tape.map(({ ticker, pct }, i) => {
             const positive = parseFloat(pct) >= 0
@@ -49,7 +49,7 @@ export default function Header({ dataType, onDataTypeChange }) {
             <TrendingUp className="w-4 h-5 text-emerald-400" />
           </div>
           <div>
-            <h1 className="text-xl leading-none tracking-widest text-white select-none font-display md:text-2xl">
+            <h1 className="text-xl leading-none tracking-widest text-white font-display md:text-2xl">
               BUBBLE OBSERVATORY
             </h1>
             <p className="font-mono text-[9px] text-[#4b5563] tracking-[0.22em] uppercase hidden md:block">
@@ -97,13 +97,11 @@ export default function Header({ dataType, onDataTypeChange }) {
       </div>
 
       {/* Disclaimer tooltip on hover over tape */}
-      {/*
       <div className="absolute top-0 left-0 w-full h-7 group">
         <div className="hidden group-hover:block absolute top-7 left-4 z-50 bg-[#0d1117] border border-[#1c2631] rounded px-3 py-1.5 font-mono text-[10px] text-[#6b7280] whitespace-nowrap pointer-events-none">
           ⚠ Ticker tape shows decorative values only — not real-time prices
         </div>
       </div>
-      */}
     </header>
   )
 }

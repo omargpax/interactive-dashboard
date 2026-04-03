@@ -1,4 +1,4 @@
-# Bubble Observatory
+# ETF Bubble Observatory v2
 
 Bloomberg-terminal aesthetic dashboard comparing **Dotcom Era (1995–2005)** vs **Modern Era (2015–2026)** — across both ETF benchmarks and large-cap companies by sector.
 

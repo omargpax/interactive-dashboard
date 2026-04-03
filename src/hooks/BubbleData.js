@@ -55,8 +55,8 @@ export function useData(dataType) {
     setErrors({})
 
     const paths = dataType === 'etf'
-      ? { dotcom: '/data/etf/dotcom.json', modern: '/data/etf/modern.json' }
-      : { dotcom: '/data/companies/dotcom.json', modern: '/data/companies/modern.json' }
+      ? { dotcom: '/data/bubble-observatory/etf/dotcom.json', modern: '/data/bubble-observatory/etf/modern.json' }
+      : { dotcom: '/data/bubble-observatory/companies/dotcom.json', modern: '/data/bubble-observatory/companies/modern.json' }
 
     const load = async () => {
       const errs = {}

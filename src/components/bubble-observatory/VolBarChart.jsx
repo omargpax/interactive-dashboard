@@ -1,6 +1,6 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell, ResponsiveContainer } from 'recharts'
-import { TICKER_COLORS } from '../utils/constants'
+import { TICKER_COLORS } from '../../utils/constants'
 
 export default function VolBarChart({ stats, tickers, era }) {
   const colors = era === 'dotcom'

@@ -3,7 +3,7 @@ import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine,
 } from 'recharts'
 import { ChartTooltip } from './ui'
-import { TICKER_COLORS, EVENTS } from '../utils/constants'
+import { TICKER_COLORS, EVENTS } from '../../utils/constants'
 
 export default function PriceChart({ series, tickers, era, height = 340 }) {
   const [hidden, setHidden] = useState(new Set())

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts'
-import { computeDrawdownSeries, fmtPct } from '../utils/dataUtils'
-import { TICKER_COLORS } from '../utils/constants'
+import { computeDrawdownSeries, fmtPct } from '../../utils/dataUtils'
+import { TICKER_COLORS } from '../../utils/constants'
 
 export default function DrawdownChart({ monthlyGrouped, tickers, era }) {
   const [active, setActive] = useState(tickers[0])

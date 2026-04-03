@@ -36,7 +36,7 @@ export function LoadingScreen({ dataType }) {
         </div>
         <div className="mt-3 h-0.5 bg-[#1c2631] rounded overflow-hidden">
           <div
-            className="h-full bg-amber-400 transition-all duration-500 ease-out"
+            className="h-full transition-all duration-500 ease-out bg-amber-400"
             style={{ width: `${((step + 1) / STEPS.length) * 100}%` }}
           />
         </div>
@@ -47,15 +47,15 @@ export function LoadingScreen({ dataType }) {
 
 export function ErrorPanel({ errors }) {
   return (
-    <div className="max-w-lg mx-auto mt-16 px-6">
+    <div className="max-w-lg px-6 mx-auto mt-16">
       <div className="bg-[#0d1117] border border-red-500/25 rounded-lg p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-8 rounded-full bg-red-500/15 flex items-center justify-center text-red-400 text-sm">!</div>
-          <h2 className="font-mono text-red-400 tracking-widest uppercase text-sm">Data Load Error</h2>
+          <div className="flex items-center justify-center w-8 h-8 text-sm text-red-400 rounded-full bg-red-500/15">!</div>
+          <h2 className="font-mono text-sm tracking-widest text-red-400 uppercase">Data Load Error</h2>
         </div>
-        <div className="space-y-2 font-mono text-sm mb-5">
+        <div className="mb-5 space-y-2 font-mono text-sm">
           {Object.entries(errors).map(([era, msg]) => (
-            <div key={era} className="bg-red-500/5 border border-red-500/15 rounded p-3">
+            <div key={era} className="p-3 border rounded bg-red-500/5 border-red-500/15">
               <p className="text-red-400/70 text-[10px] uppercase tracking-wider mb-1">{era}</p>
               <p className="text-[#c9d1d9] text-xs">{msg}</p>
             </div>
@@ -63,10 +63,10 @@ export function ErrorPanel({ errors }) {
         </div>
         <div className="border-t border-[#1c2631] pt-4 text-[#6b7280] text-xs space-y-1">
           <p>Expected file locations:</p>
-          <p className="text-amber-400/70">public/data/etf/dotcom.json</p>
-          <p className="text-amber-400/70">public/data/etf/modern.json</p>
-          <p className="text-emerald-400/70">public/data/companies/dotcom.json</p>
-          <p className="text-emerald-400/70">public/data/companies/modern.json</p>
+          <p className="text-amber-400/70">public/data/bubble-observatory/etf/dotcom.json</p>
+          <p className="text-amber-400/70">public/data/bubble-observatory/etf/modern.json</p>
+          <p className="text-emerald-400/70">public/data/bubble-observatory/companies/dotcom.json</p>
+          <p className="text-emerald-400/70">public/data/bubble-observatory/companies/modern.json</p>
         </div>
       </div>
     </div>

@@ -2,8 +2,8 @@ import React, { useMemo, useState } from 'react'
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, ReferenceLine, ResponsiveContainer,
 } from 'recharts'
-import { buildMonthsNormalized, fmtPct } from '../utils/dataUtils'
-import { COMPARE_NARRATIVES, ERAS, SECTORS, SECTOR_KEYS } from '../utils/constants'
+import { buildMonthsNormalized, fmtPct } from '../../utils/dataUtils'
+import { COMPARE_NARRATIVES, ERAS, SECTORS, SECTOR_KEYS } from '../../utils/constants'
 import { Panel, StatCard, InsightBox, SectionLabel } from './ui'
 
 // ─── Narrative card ─────────────────────────────────────────────────────────
@@ -11,8 +11,8 @@ function NarrativeCard({ narrative, dotcomTicker, modernTicker }) {
   if (!narrative) return null
   return (
     <div className="space-y-3">
-      <h3 className="font-display text-xl tracking-widest text-white">{narrative.title}</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <h3 className="text-xl tracking-widest text-white font-display">{narrative.title}</h3>
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         <div className="bg-[#0d1117] border border-amber-500/20 rounded-lg p-4">
           <div className="flex items-center gap-2 mb-2">
             <div className="w-2 h-2 rounded-full bg-amber-400" />
@@ -47,12 +47,12 @@ function StatCompare({ label, dotcomVal, modernVal, fmt = v => fmtPct(v) }) {
     <div className="bg-[#0d1117] border border-[#1c2631] rounded-lg p-3">
       <p className="font-mono text-[10px] uppercase tracking-widest text-[#6b7280] mb-2">{label}</p>
       <div className="flex items-center justify-between">
-        <div className="text-center flex-1">
+        <div className="flex-1 text-center">
           <p className="font-mono text-lg text-amber-400">{fmt(dotcomVal)}</p>
           <p className="font-mono text-[9px] text-amber-400/50 mt-0.5">DOTCOM</p>
         </div>
         <div className="font-mono text-[#1c2631] text-sm">╱</div>
-        <div className="text-center flex-1">
+        <div className="flex-1 text-center">
           <p className="font-mono text-lg text-emerald-400">{fmt(modernVal)}</p>
           <p className="font-mono text-[9px] text-emerald-400/50 mt-0.5">MODERN</p>
         </div>
@@ -140,7 +140,7 @@ export default function CompareView({ dotcom, modern, dataType }) {
       <SectionLabel text="Select tickers to compare" />
 
       {/* Ticker selectors */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-widest text-amber-400/60 mb-2">
             Dotcom Era ticker
@@ -173,7 +173,7 @@ export default function CompareView({ dotcom, modern, dataType }) {
 
       {/* Key stats side-by-side */}
       {dtStats && mtStats && (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           <StatCompare label="Total Return" dotcomVal={dtStats.totalReturn} modernVal={mtStats.totalReturn} />
           <StatCompare label="Max Drawdown" dotcomVal={dtStats.maxDrawdown} modernVal={mtStats.maxDrawdown} />
           <StatCompare label="Volatility"   dotcomVal={dtStats.volatility}  modernVal={mtStats.volatility} />

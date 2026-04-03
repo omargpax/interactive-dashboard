@@ -1,5 +1,5 @@
 import React from 'react'
-import { SECTORS, SECTOR_KEYS } from '../utils/constants'
+import { SECTORS, SECTOR_KEYS } from '../../utils/constants'
 
 export default function SectorNav({ activeSector, onSelect, era, availableSectors }) {
   const eraColor = era === 'dotcom' ? 'text-amber-400 border-amber-500/40 bg-amber-500/10' : 'text-emerald-400 border-emerald-500/40 bg-emerald-500/10'

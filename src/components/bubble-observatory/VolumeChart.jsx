@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell, ResponsiveContainer } from 'recharts'
-import { TICKER_COLORS } from '../utils/constants'
+import { TICKER_COLORS } from '../../utils/constants'
 
 function fmtVol(v) {
   if (v >= 1e9) return `${(v/1e9).toFixed(1)}B`

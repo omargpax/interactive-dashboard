@@ -6,8 +6,8 @@ import VolBarChart from './VolBarChart'
 import VolumeChart from './VolumeChart'
 import StatsTable from './StatsTable'
 import SectorNav from './SectorNav'
-import { fmtPct } from '../utils/dataUtils'
-import { ERAS, SECTORS } from '../utils/constants'
+import { fmtPct } from '../../utils/dataUtils'
+import { ERAS, SECTORS } from '../../utils/constants'
 
 const TABS = [
   { id: 'overview',   label: '⬡  Overview',    desc: 'KPIs & price chart' },

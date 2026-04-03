@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { fmtPct, fmtPrice, fmtDate } from '../utils/dataUtils'
+import { fmtPct, fmtPrice, fmtDate } from '../../utils/dataUtils'
 
 const COLS = [
   { key: 'ticker',      label: 'TICKER',    align: 'left',  fmt: v => v },
