@@ -139,9 +139,9 @@ export default function BubbleObservatory() {
             Bubble Observatory · Research purposes only
           </p>
           <div className="font-mono text-[10px] text-[#4b5563] flex flex-wrap gap-3">
-            <a href="https://github.com/omargpax/interactive-dashboard/" className="text-emerald-400/40 hover:text-emerald-400"><span>open source</span></a>
+            <a href="https://github.com/omargpax/interactive-dashboard" className="text-emerald-400/40 hover:text-emerald-400"><span>open source</span></a>
             <span className="select-none text-white/40">·</span>
-            <a href="https://github.com/omargpax/bubble-observatory/tree/main/public/data/bubble-observatory" className="text-amber-400/40 hover:text-amber-400"> <span>data</span></a>
+            <a href="https://github.com/omargpax/interactive-dashboard/tree/main/public/data/bubble-observatory" className="text-amber-400/40 hover:text-amber-400"> <span>data</span></a>
           </div>
         </div>
       </footer>
