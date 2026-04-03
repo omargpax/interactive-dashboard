@@ -1,6 +1,7 @@
 import yfinance as yf
 import pandas as pd
 import time
+from pathlib import Path
 
 # 1. Definir los ETFs más grandes y relevantes del periodo actual
 sectores = {
@@ -59,19 +60,21 @@ if datos_totales:
     
     columnas_ordenadas = ["Date", "Category", "Ticker", "Open", "High", "Low", "Close", "Volume"]
     columnas_finales = [c for c in columnas_ordenadas if c in dataset_final.columns]
-    
     dataset_final = dataset_final[columnas_finales]
     
-    # Exportación
-    nombre_csv = "etf_modern_era_2020_2025.csv"
-    nombre_json = "etf_modern_era_2020_2025.json"
+    directorio_script = Path(__file__).resolve().parent
+    directorio_destino = directorio_script.parents[2] / "data" / "bubble-observatory" / "etf"
+    directorio_destino.mkdir(parents=True, exist_ok=True)
     
-    dataset_final.to_csv(nombre_csv, index=False)
+    # Exportación
+    #nombre_csv = "etf_modern_era_2020_2025.csv"
+    archivo_json = directorio_destino / "modern.json"
+    
+    #dataset_final.to_csv(nombre_csv, index=False)
     dataset_final.to_json(nombre_json, orient="records", date_format="iso")
     
-    print(f"\n¡Éxito! Dataset generado:")
-    print(f"- CSV: {nombre_csv}")
-    print(f"- JSON: {nombre_json}")
+    print(f"¡Éxito! Archivo generado correctamente en:")
+    print(f"- {archivo_json}")
     print(f"- Total de filas: {len(dataset_final)}")
 else:
     print("No se recolectaron datos. Revisa la conexión o los tickers.")

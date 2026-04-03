@@ -1,6 +1,7 @@
 import yfinance as yf
 import pandas as pd
 import time
+from pathlib import Path
 
 sectores = {
     "Tecnologia": ["MSFT", "CSCO", "INTC", "IBM", "ORCL"],
@@ -58,9 +59,22 @@ if datos_totales:
     columnas = ["Date", "Sector", "Ticker", "Open", "High", "Low", "Close", "Volume"]
     dataset_final = dataset_final[columnas]
     
-    dataset_final.to_csv("burbuja_com_sectores.csv", index=False)
-    dataset_final.to_json("burbuja_com_sectores.json", orient="records", date_format="iso")
+    # Obtener ruta del directorio actual
+    directorio_script = Path(__file__).resolve().parent
     
-    print(f"¡Éxito! Se recolectaron {len(dataset_final)} registros.")
+    # parent[0] = companies | parent[1] = bubble-observatory | parent[2] = scripts
+    directorio_destino = directorio_script.parents[2] / "data" / "bubble-observatory" / "companies"
+    
+    # Crear las carpetas de destino si por alguna razón no existen aún
+    directorio_destino.mkdir(parents=True, exist_ok=True)
+    
+    # Definir la ruta final del archivo
+    archivo_json = directorio_destino / "dotcom.json"
+    
+    #dataset_final.to_csv("burbuja_com_sectores.csv", index=False)
+    dataset_final.to_json(archivo_json, orient="records", date_format="iso")
+    
+    print(f"¡Éxito! Archivo generado correctamente en:")
+    print(f"- {archivo_json}")
 else:
     print("No se pudo recolectar ninguna información.")

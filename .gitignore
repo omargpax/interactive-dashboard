@@ -19,9 +19,16 @@ yarn-error.log*
 # env files
 .env*
 
+# virtual environment
+/venv
+
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# data
+public/data/bubble-observatory/etf/*.json
+public/data/bubble-observatory/companies/*.json

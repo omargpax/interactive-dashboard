@@ -1,6 +1,7 @@
 import yfinance as yf
 import pandas as pd
 import time
+from pathlib import Path
 
 # 1. Definir los líderes actuales de cada sector (GICS Sector Leaders)
 sectores = {
@@ -61,15 +62,24 @@ if datos_totales:
     columnas_existentes = [c for c in columnas_deseadas if c in dataset_final.columns]
     dataset_final = dataset_final[columnas_existentes]
     
-    # Exportar resultados
-    archivo_csv = "empresas_era_actual_2020_2025.csv"
-    archivo_json = "empresas_era_actual_2020_2025.json"
+    # Obtener ruta del directorio actual
+    directorio_script = Path(__file__).resolve().parent
     
-    dataset_final.to_csv(archivo_csv, index=False)
+    # parent[0] = companies | parent[1] = bubble-observatory | parent[2] = scripts
+    directorio_destino = directorio_script.parents[2] / "data" / "bubble-observatory" / "companies"
+    
+    # Si no existen las carpetas, las crea
+    directorio_destino.mkdir(parents=True, exist_ok=True)
+    
+    # Exportar resultados
+    #archivo_csv = "modern.csv"
+    archivo_json = directorio_destino / "modern.json"
+    
+    #dataset_final.to_csv(archivo_csv, index=False)
     dataset_final.to_json(archivo_json, orient="records", date_format="iso")
     
-    print(f"¡Éxito! Archivos generados correctamente:")
-    print(f"- {archivo_csv}")
+    print(f"¡Éxito! Archivo generado correctamente en:")
+    #print(f"- {archivo_csv}")
     print(f"- {archivo_json}")
 else:
     print("No se pudo recolectar información.")
