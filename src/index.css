@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #080c10;
+    color: #c9d1d9;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: #0d1117; }
+  ::-webkit-scrollbar-thumb { background: #1c2631; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
+}
+
+@layer utilities {
+  .glow-amber { text-shadow: 0 0 18px rgba(245,158,11,0.55); }
+  .glow-green  { text-shadow: 0 0 18px rgba(16,185,129,0.55); }
+  .glow-red    { text-shadow: 0 0 16px rgba(239,68,68,0.5); }
+  .scanline {
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 2px,
+      rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px
+    );
+    pointer-events: none;
+  }
+  .chart-in { animation: fadeUp 0.55s ease forwards; }
+}
+
+/* Recharts grid */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #1c2631 !important;
+  stroke-dasharray: 4 4;
+}
+.recharts-tooltip-wrapper { outline: none !important; }
+
+/* cursor blink */
+.cursor-blink::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+  color: #f59e0b;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
